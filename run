@@ -1,3 +1,5 @@
 #!/bin/bash
 
-sed 's/\t/  /g' MainThreaded.py && Ui2Py && python MainThreaded.py
+sed -i 's/\t/  /g' MainThreaded.py 
+sed -i 's/\t/  /g' MusicManager.py 
+Ui2Py && python MainThreaded.py

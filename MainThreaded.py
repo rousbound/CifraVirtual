@@ -2,6 +2,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from GUI import*
+from MusicManager import MusicComponent
 import os
 
 class Main:
@@ -10,10 +11,18 @@ class Main:
         self.mainWindow = QMainWindow()
         self.ui.setupUi(self.mainWindow)
         self.mainWindow.resize(791, 808)
-        self.connect()
+        self.connectFileButtons()
+        self.connectMusicComponentButtons()
+        self.musicComponent = MusicComponent()
+        self.setIcons()
         self.state = ""
 
-    def connect(self):
+    def setIcons(self):
+        #self.ui.musicToogleButton.setIcon(QtGui.QIcon('Icons/playpause.png'))
+        #self.ui.musicToogleButton.setIconSize(QtCore.QSize(48,64))
+        pass
+
+    def connectFileButtons(self):
        self.ui.actionOpenSongs.triggered.connect\
         (lambda: self.OpenWindow("songs"))
 
@@ -32,13 +41,23 @@ class Main:
        self.ui.actionDelete_Song.triggered.connect\
         (lambda: self.deleteListItem(self.ui.musicList))
 
+    def connectMusicComponentButtons(self):
+        self.ui.musicToogleButton.clicked.connect\
+          (lambda: self.musicComponent.toogleMusic(self,self.ui.musicList))
+        self.ui.musicReplayButton.clicked.connect\
+          (lambda: self.musicComponent.replayMusic(self.ui.musicList))
+        self.ui.musicRewindButton.clicked.connect(lambda: self.musicComponent.changeTimePos(-5000))
+        self.ui.musicForwardButton.clicked.connect(lambda: self.musicComponent.changeTimePos(5000))
+
+    def getTxtFilePath(self,title):
+      return self.state + title + ".txt"
+
     def save(self,listWidget,display):
         text = display.toPlainText()
         def overwrite(path):
             file = open(path,"w")
             file.write(str(text))
             file.close()
-        #path = self.state + listWidget.currentItem().text() + ".txt"
         filePath = self.getTxtFilePath(listWidget.currentItem().text())
         overwrite(filePath)
 
@@ -52,11 +71,19 @@ class Main:
             print("File not found")
 
     def openItem(self,list,display):
-        filePath = ""
+        if self.musicComponent.player:
+          self.musicComponent.player.stop()
+          self.musicComponent.player = None
         itemTitle = list.currentItem().text()
-        #filePath = self.state + itemTitle + ".txt"
         filePath = self.getTxtFilePath(itemTitle)
         self.openFile(filePath,display)
+
+
+
+    def loadListFiles(self,path,list):
+        for el in os.listdir(path):
+            if el[-4:] == ".txt":
+                list.addItem(el[:-4])
 
     def newListItem(self,lineEntry,listWidget,textDisplay):
         item = lineEntry.text()
@@ -66,9 +93,6 @@ class Main:
                 textDisplay.clear()
                 lineEntry.clear()
                 listWidget.addItem(item)
-
-    def getTxtFilePath(self,title):
-      return self.state + title + ".txt"
 
     def deleteListItem(self,listWidget):
           if(listWidget.currentItem()):
@@ -83,11 +107,6 @@ class Main:
           else:
             print("No item selected")
 
-    def loadListFiles(self,path,list):
-        for el in os.listdir(path):
-            if el[-4:] == ".txt":
-                list.addItem(el[:-4])
-  
     def clearListWidget(self,list):
         listItems=[list.item(i) for i in range(list.count())]
         for item in listItems:

@@ -37,19 +37,6 @@
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="musicSmartButton">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>750</y>
-      <width>92</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Smart Get</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="musicAddEntryButton">
     <property name="geometry">
      <rect>
@@ -61,16 +48,6 @@
     </property>
     <property name="text">
      <string>Add Item</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="musicUrlLineEntry">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>780</y>
-      <width>151</width>
-      <height>25</height>
-     </rect>
     </property>
    </widget>
    <widget class="QSlider" name="musicTimeTrack">
@@ -99,7 +76,7 @@
      <string>Recording</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="musicPlayButton">
+   <widget class="QPushButton" name="musicToogleButton">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -185,13 +162,6 @@
     <property name="title">
      <string>File</string>
     </property>
-    <widget class="QMenu" name="menuNew">
-     <property name="title">
-      <string>New</string>
-     </property>
-     <addaction name="actionSongs"/>
-     <addaction name="actionCompositions"/>
-    </widget>
     <widget class="QMenu" name="menuOpen">
      <property name="title">
       <string>Open</string>
@@ -205,7 +175,6 @@
      </property>
      <addaction name="actionDelete_Song"/>
     </widget>
-    <addaction name="menuNew"/>
     <addaction name="menuOpen"/>
     <addaction name="menuEdit"/>
    </widget>
