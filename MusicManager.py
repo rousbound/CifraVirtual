@@ -8,6 +8,7 @@ class AudioHandler:
     def __init__(self):
         self.player = None
         self.recorder = RecAUD()
+        
 
     def getSongPathFromList(self,listWidget):
       title = listWidget.currentItem().text()
@@ -15,34 +16,50 @@ class AudioHandler:
 
     def toggleMusic(self,Main,listWidget):
         if listWidget.currentItem():
+            
+            filePath = self.getSongPathFromList(listWidget)
 
-						filePath = self.getSongPathFromList(listWidget)
 
-						if not os.path.isfile(filePath):
-							print("Song not found")
-							return
+            if not os.path.isfile(filePath):
+              print("Song not found")
+              return
 
-						if self.player == None:
+            if self.player == None:
 
-								self.player = vlc.MediaPlayer(filePath)
-								self.player.play()
+              self.player = vlc.MediaPlayer(filePath)
 
-								self.updatePositionThread = \
-								threading.Thread(target = self.updatePosition, \
-																 daemon = True, \
-																   args = (Main,))
+              if Main.ui.musicRecording.isChecked():
+                self.startRecordingThread(Main)
 
-								self.updatePositionThread.start()
+              self.player.play()
 
-						else:
+              self.updatePositionThread = threading.Thread\
+                                (target = self.updatePosition, \
+                                 daemon = True, \
+                                   args = (Main,))
 
-								self.player.pause()
-								self.player.audio_set_volume(100)
+              self.updatePositionThread.start()
+
+            else:
+
+              self.recorder.stopRecording()
+              self.player.pause()
+              self.player.audio_set_volume(100)
 
         else:
 
           print("No song selected")
 
+    def startRecordingThread(self, Main):
+        self.recording = True
+        recordingLength = self.player.get_length()*1.2
+        print("Song Length:", recordingLength)
+        self.recordThread = \
+        threading.Thread(target = self.recorder.captureChunkData,\
+                         daemon = True, \
+                           args = (recordingLength, Main.ui.musicList.currentItem().text(),))
+        self.recordThread.start()
+  
 
 
     def updatePosition(self, Main):
@@ -67,7 +84,7 @@ class AudioHandler:
           now = self.player.get_time()
           new_pos = now + interval
           self.player.set_time(new_pos)
-				else:
-					print("No song playing")
+        else:
+          print("No song playing")
 
 

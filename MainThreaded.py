@@ -13,13 +13,8 @@ class Main:
         self.mainWindow.resize(791, 808)
         self.connect()
         self.audioHandler = AudioHandler()
-        self.setIcons()
         self.state = ""
 
-    def setIcons(self):
-        #self.ui.musicToggleButton.setIcon(QtGui.QIcon('Icons/playpause.png'))
-        #self.ui.musicToggleButton.setIconSize(QtCore.QSize(48,64))
-        pass
 
     def connect(self):
        #File management buttons
@@ -58,13 +53,16 @@ class Main:
       return self.state + title + ".txt"
 
     def save(self,listWidget,display):
-        text = display.toPlainText()
-        def overwrite(path):
-            file = open(path,"w")
-            file.write(str(text))
-            file.close()
-        filePath = self.getTxtFilePath(listWidget.currentItem().text())
-        overwrite(filePath)
+        if self.state != "": 
+          text = display.toPlainText()
+          def overwrite(path):
+              file = open(path,"w")
+              file.write(str(text))
+              file.close()
+          filePath = self.getTxtFilePath(listWidget.currentItem().text())
+          overwrite(filePath)
+        else:
+          print("Still on main screen")
 
     def openFile(self,path,display):
         try:

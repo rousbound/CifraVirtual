@@ -11,38 +11,54 @@ class RecAUD:
         self.CHANNELS = channels
         self.RATE = rate
         self.RECORD_SECONDS = 10
-        self.p = py
+        self.pyaudio = py
         self.frames = []
-        self.st = 1
+        #self.st = 1
         self.recording = False
 
 
-    def start_record(self,duration,song):
-        self.stream = self.p.open(format=self.FORMAT, channels=self.CHANNELS, rate=self.RATE, input=True, frames_per_buffer=self.CHUNK)
+    def captureChunkData(self,duration,song):
+        self.stream               = self.pyaudio.open\
+													 (format=self.FORMAT,\
+													channels=self.CHANNELS,\
+															rate=self.RATE,\
+														 input=True,
+								 frames_per_buffer=self.CHUNK)
+
         self.frames = []
         self.recording = True
-        print("record inicio")
-        for i in range(0, int(self.RATE / self.CHUNK * duration)):#self.RECORD_SECONDS)):
+
+        print("Start Recording")
+
+        for i in range(0, int(self.RATE / self.CHUNK * duration)):
+
             data = self.stream.read(self.CHUNK)
             self.frames.append(data)
             print("* recording:", duration)
             if self.recording == False:
                 break
 
+        self.saveChunkData(song)
+	
 
-        self.stop(song)
-
-    def stop(self,song):
+    def saveChunkData(self,song):
         self.stream.close()
-        file = song + '.wav'
+        filePath = song + '.wav'
         i = 0
-        while os.path.isfile(os.getcwd() + '/Recordings/' + file) == True:
+
+				#Song Version control
+        while os.path.isfile(os.getcwd() + '/Recordings/' + filePath) == True:
             i+= 1
-            file = song + str(i) + '.wav'
-        print(os.getcwd() + '/Recordings/' + file)
-        wf = wave.open(os.getcwd() + '/Recordings/' + file, 'wb')
+            filePath = song + str(i) + '.wav'
+        print("Song File Path:", os.getcwd() + '/Recordings/' + filePath)
+
+        wf = wave.open(os.getcwd() + '/Recordings/' + filePath, 'wb')
         wf.setnchannels(self.CHANNELS)
-        wf.setsampwidth(self.p.get_sample_size(self.FORMAT))
+        wf.setsampwidth(self.pyaudio.get_sample_size(self.FORMAT))
         wf.setframerate(self.RATE)
         wf.writeframes(b''.join(self.frames))
         wf.close()
+
+
+		def stopRecording(self):
+				self.recording = False

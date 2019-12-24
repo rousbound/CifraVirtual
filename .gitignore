@@ -3,6 +3,7 @@ core
 *.mp3
 *.py_
 *.txt
+*.wav
 old/*
 
 
