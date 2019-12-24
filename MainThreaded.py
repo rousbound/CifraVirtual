@@ -2,7 +2,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from GUI import*
-from MusicManager import MusicComponent
+from MusicManager import AudioHandler
 import os
 
 class Main:
@@ -11,18 +11,18 @@ class Main:
         self.mainWindow = QMainWindow()
         self.ui.setupUi(self.mainWindow)
         self.mainWindow.resize(791, 808)
-        self.connectFileButtons()
-        self.connectMusicComponentButtons()
-        self.musicComponent = MusicComponent()
+        self.connect()
+        self.audioHandler = AudioHandler()
         self.setIcons()
         self.state = ""
 
     def setIcons(self):
-        #self.ui.musicToogleButton.setIcon(QtGui.QIcon('Icons/playpause.png'))
-        #self.ui.musicToogleButton.setIconSize(QtCore.QSize(48,64))
+        #self.ui.musicToggleButton.setIcon(QtGui.QIcon('Icons/playpause.png'))
+        #self.ui.musicToggleButton.setIconSize(QtCore.QSize(48,64))
         pass
 
-    def connectFileButtons(self):
+    def connect(self):
+       #File management buttons
        self.ui.actionOpenSongs.triggered.connect\
         (lambda: self.OpenWindow("songs"))
 
@@ -37,17 +37,22 @@ class Main:
 
        self.ui.musicAddEntryButton.clicked.connect\
         (lambda: self.newListItem(self.ui.musicLineEntry,self.ui.musicList,self.ui.musicTextDisplay))
-      
+
        self.ui.actionDelete_Song.triggered.connect\
         (lambda: self.deleteListItem(self.ui.musicList))
 
-    def connectMusicComponentButtons(self):
-        self.ui.musicToogleButton.clicked.connect\
-          (lambda: self.musicComponent.toogleMusic(self,self.ui.musicList))
-        self.ui.musicReplayButton.clicked.connect\
-          (lambda: self.musicComponent.replayMusic(self.ui.musicList))
-        self.ui.musicRewindButton.clicked.connect(lambda: self.musicComponent.changeTimePos(-5000))
-        self.ui.musicForwardButton.clicked.connect(lambda: self.musicComponent.changeTimePos(5000))
+       self.ui.musicToggleButton.clicked.connect\
+        (lambda: self.audioHandler.toggleMusic(self,self.ui.musicList))
+
+      #Audio playback buttons 
+       self.ui.musicReplayButton.clicked.connect\
+        (lambda: self.audioHandler.replayMusic(self.ui.musicList))
+
+       self.ui.musicRewindButton.clicked.connect\
+        (lambda: self.audioHandler.changeTimePos(-5000))
+
+       self.ui.musicForwardButton.clicked.connect\
+        (lambda: self.audioHandler.changeTimePos(5000))
 
     def getTxtFilePath(self,title):
       return self.state + title + ".txt"
@@ -71,9 +76,9 @@ class Main:
             print("File not found")
 
     def openItem(self,list,display):
-        if self.musicComponent.player:
-          self.musicComponent.player.stop()
-          self.musicComponent.player = None
+        if self.audioHandler.player:
+          self.audioHandler.player.stop()
+          self.audioHandler.player = None
         itemTitle = list.currentItem().text()
         filePath = self.getTxtFilePath(itemTitle)
         self.openFile(filePath,display)

@@ -76,7 +76,7 @@
      <string>Recording</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="musicToogleButton">
+   <widget class="QPushButton" name="musicToggleButton">
     <property name="geometry">
      <rect>
       <x>350</x>
