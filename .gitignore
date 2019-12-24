@@ -1,4 +1,7 @@
 core
 *pyc
 *.mp3
+*.py_
+*.txt
+
 
