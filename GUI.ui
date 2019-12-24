@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CifraVirtual</class>
+ <widget class="QMainWindow" name="CifraVirtual">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>806</width>
+    <height>958</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CifraVirtual</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextEdit" name="musicTextDisplay">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
+      <width>571</width>
+      <height>850</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="musicSaveButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>650</y>
+      <width>151</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="musicSmartButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>750</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Smart Get</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="musicAddEntryButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>680</y>
+      <width>151</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Item</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="musicUrlLineEntry">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>780</y>
+      <width>151</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="musicTimeTrack">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>870</y>
+      <width>551</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="musicRecording">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>890</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Recording</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="musicPlayButton">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>890</y>
+      <width>41</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&gt;/#</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="musicList">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>151</width>
+      <height>631</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="musicForwardButton">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>890</y>
+      <width>31</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>f</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="musicLineEntry">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>720</y>
+      <width>151</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="musicRewindButton">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>890</y>
+      <width>31</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>r</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="musicReplayButton">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>890</y>
+      <width>31</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>R</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>806</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuNew">
+     <property name="title">
+      <string>New</string>
+     </property>
+     <addaction name="actionSongs"/>
+     <addaction name="actionCompositions"/>
+    </widget>
+    <widget class="QMenu" name="menuOpen">
+     <property name="title">
+      <string>Open</string>
+     </property>
+     <addaction name="actionOpenSongs"/>
+     <addaction name="actionOpenCompositions"/>
+    </widget>
+    <widget class="QMenu" name="menuEdit">
+     <property name="title">
+      <string>Edit</string>
+     </property>
+     <addaction name="actionDelete_Song"/>
+    </widget>
+    <addaction name="menuNew"/>
+    <addaction name="menuOpen"/>
+    <addaction name="menuEdit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSongs">
+   <property name="text">
+    <string>Song</string>
+   </property>
+  </action>
+  <action name="actionCompositions">
+   <property name="text">
+    <string>Composition</string>
+   </property>
+  </action>
+  <action name="actionOpenSongs">
+   <property name="text">
+    <string>Songs</string>
+   </property>
+  </action>
+  <action name="actionOpenCompositions">
+   <property name="text">
+    <string>Compositions</string>
+   </property>
+  </action>
+  <action name="actionDelete_Song">
+   <property name="text">
+    <string>Delete Song</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

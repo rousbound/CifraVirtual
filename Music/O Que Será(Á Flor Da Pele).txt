@@ -1,0 +1,118 @@
+Chico Buarque - O Que Será (À Flor da Terra)
+
+ Intr.: | Gm Gm7M | Gm7 Gm6 | Dm Dm7M | Dm7 Dm6 | Cm Cm7M | Cm7 Cm6 |
+       |  Ebm  Ebm7M | Am5-/7  D7/9- |
+
+Gm       Gm7M      Gm7
+ O que será que me dá
+    Gm6         Dm        Dm7M      Dm7
+Que me bole por dentro, será que me dá
+    Dm6             Cm      Cm7M      Cm7
+Que brota à flor da pele, será que me dá
+  Cm6            Ebm     Ebm7M     Am5-/7
+E que me sobe às faces e me faz chorar
+   D7/9-           Gm    Gm7M     Gm7
+E que me salta os olhos a me atraiçoar
+  Gm6             Dm         Dm7M     Dm7
+E que me aperta o peito e me faz confessar
+  Dm6              Cm       Cm7M   Cm7
+O que não tem mais jeito de dissimular
+  Cm6            Ebm   Ebm7M    Am5-/7
+E que nem é direito ninguém recusar
+   D7/9-        Gm       Gm7M     Gm7
+E que me faz mendigo, me faz implorar
+
+  Gm6           Ebm      Ebm7M   Ebm7
+O que não tem medida nem nunca terá
+  Ebm6          Bb/D      C#°     Cm
+O que não tem remédio nem nunca terá
+  D7/9-         Gm  Gm7M   A7/13b  A7
+O que não tem receita
+Dm      Dm7M     Dm7     Dm6          Am        Am7M  Am7
+O que será que será, que dá dentro da gente que não devia
+    Am6           Gm       Gm7M    Gm7
+Que desconcerta a gente, que é revelia
+   Gm6              Bbm    Bbm7M   Em5-/7
+Que é feito uma aguardente que não sacia
+      A7          Dm    Dm7M      Dm7
+Que é feito estar doente de uma folia
+Dm6              Am    Am7M        Am7
+Que nem dez mandamentos vão conciliar
+    Am6        Gm     Gm7M      Gm7
+Nem todos os ungüentos vão aliviar
+    Gm6         Bbm    Bbm7M       Em5-/7
+Nem todos os quebrantos, toda alquimia
+     A7           Dm       Dm7M     Dm7
+Que nem todos os santos, será que será
+  Dm6            Bbm   Bbm7M       Bbm7
+O que não tem descanso nem nunca terá
+  Bbm6           F/A       Abº    Gm    A7             Dm  Dm7M  B7/13b  B7
+O que não tem cansaço nem nunca terá, o que não tem limite
+Em      Em7M      Em7     Em6           Bm   Bm7M           Bm7
+O que será que me dá, que me queima por dentro, será que me dá
+    Bm6           Am    Am7M        Am7
+Que me perturba o sono, será que me dá
+    Am6         Cm    Cm7M      F#m5-/7
+Que todos os tremores me vem agitar
+     B7        Em       Em7M   Em7
+Que todos os ardores me vem atiçar
+    Em6        Bm   Bm7M         Bm7
+Que todos os suores me vem encharcar
+    Bm6           Am   Am7M        Am7
+Que todos os meus nervos estão a rogar
+Am6               Cm       Cm7M     F#m5-/7
+Que todos os meus órgãos estão a chamar
+   B7       Em           Em7M     Em7
+E uma aflição medonha me faz implorar
+  Em6            Cm        Cm7M    Cm7
+O que não tem vergonha nem nunca terá
+  Cm6           G/B       Bb°    Am7    B7            Em
+O que não tem governo nem nunca terá, o que não tem juízo
+
+----------------- Acordes -----------------
+A7 = X 0 2 0 2 0
+A7/13b = X 0 X 0 2 1
+Abº = 4 X 3 4 3 X
+Am = X 0 2 2 1 0
+Am5-/7 = 5 X 5 5 4 X
+Am6 = 5 X 4 5 5 X
+Am7 = X 0 2 0 1 0
+Am7M = X 0 2 1 1 0
+B7 = X 2 1 2 0 2
+B7/13b = X 2 X 2 4 3
+Bb/D = X 5 X 3 6 6
+Bbm = X 1 3 3 2 1
+Bbm6 = 6 X 5 6 6 X
+Bbm7 = X 1 3 1 2 1
+Bbm7M = X 1 3 2 2 1
+Bb° = X 1 2 0 2 0
+Bm = X 2 4 4 3 2
+Bm6 = 7 X 6 7 7 X
+Bm7 = X 2 4 2 3 2
+Bm7M = X 2 4 3 3 2
+C#° = X 4 5 3 5 3
+Cm = X 3 5 5 4 3
+Cm6 = X 3 X 2 4 3
+Cm7 = X 3 5 3 4 3
+Cm7M = X 3 5 4 4 3
+D7/9- = X 5 4 5 4 X
+Dm = X X 0 2 3 1
+Dm6 = X 5 X 4 6 5
+Dm7 = X 5 7 5 6 5
+Dm7M = X X 0 2 2 1
+Ebm = X X 1 3 4 2
+Ebm6 = X X 1 3 1 2
+Ebm7 = X X 1 3 2 2
+Ebm7M = X 6 8 7 7 6
+Em = 0 2 2 0 0 0
+Em5-/7 = X X 2 3 3 3
+Em6 = X 7 X 6 8 7
+Em7 = 0 2 2 0 3 0
+Em7M = X X 2 4 4 3
+F#m5-/7 = 2 X 2 2 1 X
+F/A = 5 X 3 5 6 X
+G/B = X 2 0 0 3 3
+Gm = 3 5 5 3 3 3
+Gm6 = 3 X 2 3 3 X
+Gm7 = 3 X 3 3 3 X
+Gm7M = 3 5 4 3 3 3
