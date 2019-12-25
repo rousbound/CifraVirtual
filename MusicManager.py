@@ -24,15 +24,15 @@ class AudioHandler:
 
             if self.player == None:
 
-							if not os.path.isfile(filePath):
-								if Main.ui.musicRecording.isChecked():
-									print("Song not found, recording anyway")
-									self.startRecordingThread(Main)
-									self.player = "recording"
-									return
-								else:
-									print("Song not found")
-									return
+              if not os.path.isfile(filePath):
+                if Main.ui.musicRecording.isChecked():
+                  print("Song not found, recording anyway")
+                  self.startRecordingThread(Main)
+                  self.player = "recording"
+                  return
+                else:
+                  print("Song not found")
+                  return
 
               self.player = vlc.MediaPlayer(filePath)
 
@@ -52,11 +52,11 @@ class AudioHandler:
 
               self.recorder.stopRecording()
 
-							try:
+              try:
                 self.player.pause()
                 self.player.audio_set_volume(100)
-							except:
-								pass
+              except:
+                pass
 
         else:
 
