@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sed -i 's/\t/  /g' MainThreaded.py 
+sed -i 's/\t/  /g' MusicManager.py 
+sed -i 's/\t/  /g' Recorder.py 
+Ui2Py && python MainThreaded.py 2>&1 | grep --color line 

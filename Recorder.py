@@ -10,43 +10,44 @@ class RecAUD:
         self.FORMAT = frmat
         self.CHANNELS = channels
         self.RATE = rate
-        self.RECORD_SECONDS = 10
+        self.RECORD_SECONDS = 1500
         self.pyaudio = py
         self.frames = []
         #self.st = 1
         self.recording = False
 
 
-    def captureChunkData(self,duration,song):
-        self.stream               = self.pyaudio.open\
-													 (format=self.FORMAT,\
-													channels=self.CHANNELS,\
-															rate=self.RATE,\
-														 input=True,
-								 frames_per_buffer=self.CHUNK)
+    def captureChunkData(self, song):
+        self.stream     =          self.pyaudio.open\
+                           (format=self.FORMAT,\
+                          channels=self.CHANNELS,\
+                              rate=self.RATE,\
+                             input=True,
+                 frames_per_buffer=self.CHUNK)
 
         self.frames = []
         self.recording = True
+        
+        asdasdasd
 
         print("Start Recording")
 
-        for i in range(0, int(self.RATE / self.CHUNK * duration)):
+        for i in range(0, int(self.RATE / self.CHUNK * self.RECORD_SECONDS)):
 
             data = self.stream.read(self.CHUNK)
             self.frames.append(data)
-            print("* recording:", duration)
             if self.recording == False:
                 break
 
         self.saveChunkData(song)
-	
+  
 
     def saveChunkData(self,song):
         self.stream.close()
         filePath = song + '.wav'
         i = 0
 
-				#Song Version control
+        #Song Version control
         while os.path.isfile(os.getcwd() + '/Recordings/' + filePath) == True:
             i+= 1
             filePath = song + str(i) + '.wav'
@@ -60,5 +61,5 @@ class RecAUD:
         wf.close()
 
 
-		def stopRecording(self):
-				self.recording = False
+    def stopRecording(self):
+        self.recording = False

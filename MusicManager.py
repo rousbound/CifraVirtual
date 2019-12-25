@@ -52,12 +52,12 @@ class AudioHandler:
 
     def startRecordingThread(self, Main):
         self.recording = True
-        recordingLength = self.player.get_length()*1.2
+        recordingLength = 5
         print("Song Length:", recordingLength)
         self.recordThread = \
         threading.Thread(target = self.recorder.captureChunkData,\
                          daemon = True, \
-                           args = (recordingLength, Main.ui.musicList.currentItem().text(),))
+                           args = (Main.ui.musicList.currentItem().text(),))
         self.recordThread.start()
   
 

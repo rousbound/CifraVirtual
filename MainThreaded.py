@@ -5,6 +5,7 @@ from GUI import*
 from MusicManager import AudioHandler
 import os
 
+
 class Main:
     def __init__(self):
         self.ui = Ui_CifraVirtual()
