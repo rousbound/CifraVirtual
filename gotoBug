@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ID=$(xdotool search --name $1)
+LINE="${2}"
+SEPARATED=$(echo $LINE| sed 's/[0-9]/& /g')
+xdotool key --window $ID colon $SEPARATED KP_Enter

@@ -8,7 +8,9 @@ class AudioHandler:
     def __init__(self):
         self.player = None
         self.recorder = RecAUD()
-        
+
+    def getCurrentItemTitle(self,Main):
+      return Main.ui.musicList.currentItem().text()
 
     def getSongPathFromList(self,listWidget):
       title = listWidget.currentItem().text()
@@ -18,8 +20,6 @@ class AudioHandler:
         if listWidget.currentItem():
             
             filePath = self.getSongPathFromList(listWidget)
-
-
             if not os.path.isfile(filePath):
               print("Song not found")
               return
@@ -34,8 +34,8 @@ class AudioHandler:
               self.player.play()
 
               self.updatePositionThread = threading.Thread\
-                                (target = self.updatePosition, \
-                                 daemon = True, \
+                                (target = self.updatePosition, 
+                                 daemon = True, 
                                    args = (Main,))
 
               self.updatePositionThread.start()
@@ -54,13 +54,11 @@ class AudioHandler:
         self.recording = True
         recordingLength = 5
         print("Song Length:", recordingLength)
-        self.recordThread = \
-        threading.Thread(target = self.recorder.captureChunkData,\
-                         daemon = True, \
-                           args = (Main.ui.musicList.currentItem().text(),))
+        self.recordThread               =     threading.Thread\
+                                (target = self.recorder.captureChunkData,
+                                 daemon = True, 
+                                   args = (self.getCurrentItemTitle(Main),))
         self.recordThread.start()
-  
-
 
     def updatePosition(self, Main):
         while True:
@@ -82,9 +80,6 @@ class AudioHandler:
         if self.player:
           print("Old time:",self.player.get_time())
           now = self.player.get_time()
-          new_pos = now + interval
-          self.player.set_time(new_pos)
+          self.player.set_time(now+interval)
         else:
           print("No song playing")
-
-
