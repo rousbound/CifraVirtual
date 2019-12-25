@@ -20,7 +20,7 @@ ID=$(xdotool search --name $FILE_ERROR_NAME)
 SEPARATED=$(echo $FILE_ERROR_LINE| sed 's/[0-9]/& /g')
 echo -----FILE_ERROR_LINE_SEPARATED----
 echo "${SEPARATED}"
-xdotool key --window $ID colon $SEPARATED KP_Enter
+xdotool key --window $ID colon $SEPARATED KP_Enter z z
 
 clear
 

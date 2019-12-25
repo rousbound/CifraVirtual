@@ -20,11 +20,19 @@ class AudioHandler:
         if listWidget.currentItem():
             
             filePath = self.getSongPathFromList(listWidget)
-            if not os.path.isfile(filePath):
-              print("Song not found")
-              return
+
 
             if self.player == None:
+
+							if not os.path.isfile(filePath):
+								if Main.ui.musicRecording.isChecked():
+									print("Song not found, recording anyway")
+									self.startRecordingThread(Main)
+									self.player = "recording"
+									return
+								else:
+									print("Song not found")
+									return
 
               self.player = vlc.MediaPlayer(filePath)
 
@@ -43,8 +51,12 @@ class AudioHandler:
             else:
 
               self.recorder.stopRecording()
-              self.player.pause()
-              self.player.audio_set_volume(100)
+
+							try:
+                self.player.pause()
+                self.player.audio_set_volume(100)
+							except:
+								pass
 
         else:
 
@@ -52,8 +64,6 @@ class AudioHandler:
 
     def startRecordingThread(self, Main):
         self.recording = True
-        recordingLength = 5
-        print("Song Length:", recordingLength)
         self.recordThread               =     threading.Thread\
                                 (target = self.recorder.captureChunkData,
                                  daemon = True, 

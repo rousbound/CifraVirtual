@@ -16,7 +16,7 @@ class RecAUD:
         self.recording = False
 
 
-    def captureChunkData(self, song):
+    def captureChunkData(self, songTitle):
         self.stream       =        self.pyaudio.open\
                            (format=self.FORMAT,
                           channels=self.CHANNELS,
@@ -36,7 +36,7 @@ class RecAUD:
             if self.recording == False:
                 break
 
-        self.saveChunkData(song)
+        self.saveChunkData(songTitle)
   
 
     def saveChunkData(self,songName):
